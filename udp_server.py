@@ -21,6 +21,8 @@ def put_to_storage(author, succeed):
 
 def get_response(received_message):
     author, food = received_message.split(' - ')
+    if author[0] == '@':
+        author = author[1:]
     if food in allowed_food:
         put_to_storage(author, True)
         return "Eaten by the Cat"
